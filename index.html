@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700&display=swap"
         rel="stylesheet">
+    <link rel="icon" href="image.png">
     <style>
         * {
             margin: 0;
@@ -27,20 +28,32 @@
 </head>
 
 <body class="bg-zinc-900 text-white">
-    <div class="header flex items-center justify-between px-10 py-5">
-        <h1 class="font-extrabold text-5xl text-purple-500">Web Time</h1>
+    <div class="header flex flex-col sm:flex-row items-center justify-between px-4 sm:px-10 py-5">
+        <h1 class="font-extrabold text-3xl sm:text-5xl text-purple-500 mb-4 sm:mb-0">Web Time</h1>
         <h2
-            class="currenttime font-bold text-5xl text-purple-500 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent ">
+            class="currenttime font-bold text-2xl sm:text-5xl text-purple-500 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent ">
             Current Time</h2>
     </div>
-    <div class="twos flex justify-evenly">
-        <div class="stopwatch flex flex-col items-center p-6 rounded-lg">
+    <div class="twos flex flex-col sm:flex-row justify-evenly space-y-8 sm:space-y-0 sm:space-x-8 px-4">
+        <div class="stopwatch flex flex-col items-center p-6 bg-zinc-800 rounded-lg">
             <span class="text-white text-2xl font-bold mb-4">StopWatch</span>
-            <div class="stws bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent text-4xl mb-4">
-                <span id="stw1">00</span> :
-                <span id="stw2">00</span> :
-                <span id="stw3">00</span> :
-                <span id="stw4">00</span>
+            <div class="stws flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent text-3xl sm:text-4xl mb-4">
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">hr</span>
+                    <span id="stw1" class="border border-zinc-800 p-2 rounded-lg">00</span>  
+                </div>
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">min</span>
+                    <span id="stw2" class="border border-zinc-800 p-2 rounded-lg">00</span>
+                </div>
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">sec</span>
+                    <span id="stw3" class="border border-zinc-800 p-2 rounded-lg">00</span>    
+                </div>
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">milli</span>
+                    <span id="stw4" class="border border-zinc-800 p-2 rounded-lg">00</span>
+                </div>            
             </div>
             <div class="buttons flex space-x-4">
                 <button class="start bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md shadow-md">Start</button>
@@ -49,8 +62,32 @@
             </div>
         </div>
         
-        <div class="bg-zinc-800 border-2 border-zinc-600">
-            Timer
+        <div class="timer flex flex-col items-center p-6 bg-zinc-800 rounded-lg">
+            <span class="text-white text-2xl font-bold mb-4">Timer</span>
+            <div class="tmrs flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent text-3xl sm:text-4xl mb-4">
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">hr</span>
+                    <span id="tmr1" class="border border-zinc-800 p-2 rounded-lg">00</span>  
+                </div>
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">min</span>
+                    <span id="tmr2" class="border border-zinc-800 p-2 rounded-lg">00</span>
+                </div>
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">sec</span>
+                    <span id="tmr3" class="border border-zinc-800 p-2 rounded-lg">00</span>    
+                </div>
+                <div class="hr flex flex-col items-center">
+                    <span class="text-sm">milli</span>
+                    <span id="tmr4" class="border border-zinc-800 p-2 rounded-lg">00</span>
+                </div>
+            </div>
+            <div class="w-full py-1 mb-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" id="progressBar"></div>
+            <div class="buttons flex space-x-4">
+                <button id="start" class="start bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md shadow-md">Start</button>
+                <button id="stop" class="stop bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-red-700 text-white px-4 py-2 rounded-md shadow-md">Stop</button>
+                <button id="reset" class="reset bg-pink-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow-md">Reset</button>
+            </div>
         </div>
     </div>
     <script src="timer.js"></script>
